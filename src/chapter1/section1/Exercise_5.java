@@ -1,16 +1,20 @@
 package chapter1.section1;
 
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 public class Exercise_5 {
-    public static boolean isValid(double value) {
-        return 0.0 < value && value < 1.0;
+    public static boolean isValid(double num) {
+        // Check if a number is in a specified range
+        return 0.0 < num && num < 1.0;
     }
 
     public static void main(String[] args) {
-        double x = 0.1;
-        double y = 0.5;
+        double x = StdRandom.uniform(0.0, 2.0);
+        double y = StdRandom.uniform(0.0, 2.0);
 
-        // To not repeat myself I created a static method that
-        // checks if value of both variables are within the range.
-        System.out.println(isValid(x) && isValid(y));
+        StdOut.printf("X: %f%n", x);
+        StdOut.printf("Y: %f%n", y);
+        StdOut.printf("Are both numbers strictly between 0.0 and 1.0: %b%n", isValid(x) && isValid(y));
     }
 }
