@@ -19,6 +19,9 @@ public class Exercise_7 {
     }
 
     public static void partC() {
+        // IMPORTANT: Code in book was printed with a mistake. Instead
+        // of N there should be 1000. See the official page about all
+        // mistakes in book: https://algs4.cs.princeton.edu/errata/errata-printing1.php
         int sum = 0;
         for (int i = 1; i < 1000; i *= 2)
             for (int j = 0; j < i; j++)
