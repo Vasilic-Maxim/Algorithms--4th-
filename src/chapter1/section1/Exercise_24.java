@@ -13,7 +13,12 @@ public class Exercise_24 {
 
     public static void main(String[] args) {
         StdOut.printf("Result: %d%n", gcd(105, 24));
-        StdOut.printf("Result: %d%n", gcd(StdIn.readInt(), StdIn.readInt()));
+
+        int p = StdIn.readInt(), q = StdIn.readInt();
+        if (p <= 0) throw new IllegalArgumentException("P must be a non-negative integer.");
+        if (q <= 0) throw new IllegalArgumentException("Q must be a non-negative integer.");
+        StdOut.printf("Result: %d%n", gcd(p, q));
+
         StdOut.printf("Result: %d%n", gcd(1111111, 1234567));
     }
 }
