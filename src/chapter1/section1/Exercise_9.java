@@ -1,3 +1,5 @@
+package chapter1.section1;
+
 public class Exercise_9 {
     public static String toBinaryString1(int n) {
         // Probably the most obvious way to do that is to just

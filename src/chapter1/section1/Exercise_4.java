@@ -1,3 +1,5 @@
+package chapter1.section1;
+
 public class Exercise_4 {
     public static void main(String[] args) {
         /*

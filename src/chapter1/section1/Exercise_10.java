@@ -1,3 +1,5 @@
+package chapter1.section1;
+
 import java.util.Arrays;
 
 public class Exercise_10 {

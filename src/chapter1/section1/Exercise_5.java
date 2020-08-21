@@ -1,3 +1,5 @@
+package chapter1.section1;
+
 public class Exercise_5 {
     public static boolean isValid(double value) {
         return 0.0 < value && value < 1.0;

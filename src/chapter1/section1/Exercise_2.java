@@ -1,3 +1,5 @@
+package chapter1.section1;
+
 @SuppressWarnings("ALL")
 public class Exercise_2 {
     public static void main(String[] args) {
