@@ -1,5 +1,7 @@
 package chapter1.section1;
 
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Arrays;
 
 public class Exercise_10 {
@@ -13,6 +15,6 @@ public class Exercise_10 {
         for (int i = 0; i < 10; i++)
             a[i] = i * i;
 
-        System.out.println(Arrays.toString(a));
+        StdOut.println(Arrays.toString(a));
     }
 }

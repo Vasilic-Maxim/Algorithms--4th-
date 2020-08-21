@@ -1,5 +1,7 @@
 package chapter1.section1;
 
+import edu.princeton.cs.algs4.StdOut;
+
 @SuppressWarnings("ALL")
 public class Exercise_1 {
     public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class Exercise_1 {
         // op 1: 0 + 15 = 15
         // op 2: 15 / 2 = 7
         int a = (0 + 15) / 2;
-        System.out.println(a);
+        StdOut.println(a);
 
         // How to solve this one:
         //
@@ -19,7 +21,7 @@ public class Exercise_1 {
         // op 2: 1 / 1000000.0 * 100000000.1 = 100.1
         // op 3: 100.1 * 2.0 = 200.2
         double b = 2.0e-6 * 100000000.1;
-        System.out.println(b);
+        StdOut.println(b);
 
         // Boolean comparison... OK. Lets do it!
         //
@@ -27,6 +29,6 @@ public class Exercise_1 {
         // op 2: true && true = true
         // op 3: false || true = true
         boolean c = true && false || true && true;
-        System.out.println(c);
+        StdOut.println(c);
     }
 }

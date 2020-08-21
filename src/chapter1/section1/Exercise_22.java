@@ -20,6 +20,6 @@ public class Exercise_22 {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int target = 4;
-        StdOut.printf("Result: %d", rank(target, array));
+        StdOut.printf("Result: %d%n", rank(target, array));
     }
 }

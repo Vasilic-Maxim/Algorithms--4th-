@@ -1,8 +1,5 @@
 package chapter1.section1;
 
-// Do not forget to install the textbook libraries!
-// How to do that you can find by following this
-// link: https://algs4.cs.princeton.edu/code/
 import edu.princeton.cs.algs4.StdOut;
 
 public class Exercise_6 {

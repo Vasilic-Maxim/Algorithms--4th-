@@ -23,6 +23,6 @@ public class Exercise_12 {
 
         // Prints all the numbers from 0 to 10 (excluding).
         for (int i = 0; i < 10; i++)
-            System.out.println(i);
+            StdOut.println(i);
     }
 }
