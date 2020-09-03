@@ -23,13 +23,20 @@ public class Exercise_1 {
         StdDraw.setPenRadius(0.01);
         Point2D[] points = new Point2D[n];
         for (int i = 0; i < n; i++) {
-            int x = StdRandom.uniform(100);
-            int y = StdRandom.uniform(100);
-            points[i] = new Point2D(x, y);
+            points[i] = generate();
             points[i].draw();
         }
 
         return points;
+    }
+
+    /**
+     * @return a random point.
+     */
+    public static Point2D generate() {
+        int x = StdRandom.uniform(100);
+        int y = StdRandom.uniform(100);
+        return new Point2D(x, y);
     }
 
     /**
