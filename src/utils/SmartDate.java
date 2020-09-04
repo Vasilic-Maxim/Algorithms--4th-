@@ -52,6 +52,21 @@ public class SmartDate {
         return year;
     }
 
+    /**
+     * For more information:
+     * https://en.wikipedia.org/wiki/Determination_of_the_day_of_the_week
+     *
+     * @return name of the day.
+     */
+    public String dayOfTheWeek() {
+        String[] daysNames = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        int[] t = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+        int y = year - ((month < 3) ? 1 : 0);
+        int index = (y + y / 4 - y / 100 + y / 400 + t[month - 1] + day) % 7;
+
+        return daysNames[index];
+    }
+
     public String toString() {
         return month() + "/" + day() + "/" + year();
     }
