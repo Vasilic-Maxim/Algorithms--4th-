@@ -3,6 +3,7 @@ package utils;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Rational {
+    private static final String OVERFLOW_MESSAGE = "This operation will cause overflow!";
     private final long numerator;
     private final long denominator;
 
@@ -29,20 +30,15 @@ public class Rational {
         this.denominator = denominator;
     }
 
-    /**
-     * @param numerator   any integer value.
-     * @param denominator any integer value, except zero.
-     * @throws IllegalArgumentException if denominator is zero.
-     */
-    private Rational(long numerator, long denominator) {
-        long gcd = gcd(numerator, denominator);
-        if (gcd > 1) {
-            numerator /= gcd;
-            denominator /= gcd;
-        }
+    public static void main(String[] args) {
+        Rational a = new Rational(3, 7);
+        Rational b = new Rational(5, 31);
 
-        this.numerator = numerator;
-        this.denominator = denominator;
+        StdOut.printf("A equals B: %b%n", a.equals(b));
+        StdOut.printf("A plus B: %s%n", a.plus(b));
+        StdOut.printf("A minus B: %s%n", a.minus(b));
+        StdOut.printf("A times B: %s%n", a.times(b));
+        StdOut.printf("A divides B: %s%n", a.divides(b));
     }
 
     /**
@@ -69,10 +65,17 @@ public class Rational {
      * @return sum of this number and b.
      */
     private Rational plus(Rational b) {
+        assert numerator * b.denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
         long aNumerator = numerator * b.denominator;
+
+        assert b.numerator * denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
         long bNumerator = b.numerator * denominator;
-        long newDenominator = denominator * b.denominator;
-        return new Rational(aNumerator + bNumerator, newDenominator);
+
+        assert denominator * b.denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        int newDenominator = (int) (denominator * b.denominator);
+
+        assert aNumerator + bNumerator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        return new Rational((int) (aNumerator + bNumerator), newDenominator);
     }
 
     /**
@@ -80,10 +83,17 @@ public class Rational {
      * @return difference of this number and b.
      */
     private Rational minus(Rational b) {
+        assert numerator * b.denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
         long aNumerator = numerator * b.denominator;
+
+        assert b.numerator * denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
         long bNumerator = b.numerator * denominator;
-        long newDenominator = denominator * b.denominator;
-        return new Rational(aNumerator - bNumerator, newDenominator);
+
+        assert denominator * b.denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        int newDenominator = (int) (denominator * b.denominator);
+
+        assert aNumerator - bNumerator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        return new Rational((int) (aNumerator - bNumerator), newDenominator);
     }
 
     /**
@@ -91,8 +101,12 @@ public class Rational {
      * @return product of this number and b.
      */
     private Rational times(Rational b) {
-        long newNumerator = numerator * b.numerator;
-        long newDenominator = denominator * b.denominator;
+        assert numerator * b.numerator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        int newNumerator = (int) (numerator * b.numerator);
+
+        assert denominator * b.denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        int newDenominator = (int) (denominator * b.denominator);
+
         return new Rational(newNumerator, newDenominator);
     }
 
@@ -101,8 +115,12 @@ public class Rational {
      * @return quotient of this number and b.
      */
     private Rational divides(Rational b) {
-        long newNumerator = numerator * b.denominator;
-        long newDenominator = denominator * b.numerator;
+        assert numerator * b.denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        int newNumerator = (int) (numerator * b.denominator);
+
+        assert denominator * b.numerator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+        int newDenominator = (int) (denominator * b.numerator);
+
         return new Rational(newNumerator, newDenominator);
     }
 
@@ -127,16 +145,5 @@ public class Rational {
                 "numerator=%d denominator=%d",
                 numerator, denominator
         );
-    }
-
-    public static void main(String[] args) {
-        Rational a = new Rational(1, 7);
-        Rational b = new Rational(3, 5);
-
-        StdOut.printf("A equals B: %b%n", a.equals(b));
-        StdOut.printf("A plus B: %s%n", a.plus(b));
-        StdOut.printf("A minus B: %s%n", a.minus(b));
-        StdOut.printf("A times B: %s%n", a.times(b));
-        StdOut.printf("A divides B: %s%n", a.divides(b));
     }
 }
