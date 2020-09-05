@@ -15,6 +15,21 @@ public class SmartDate {
         this.year = year;
     }
 
+    public SmartDate(String date) {
+        String[] fields = date.split("/");
+        int month = Integer.parseInt(fields[0]);
+        int day = Integer.parseInt(fields[1]);
+        int year = Integer.parseInt(fields[2]);
+
+        validateYear(year);
+        validateMonth(month);
+        validateDay(month, day, year);
+
+        this.month = month;
+        this.day = day;
+        this.year = year;
+    }
+
     private void outOfRange(String title, int value, int leftBound, int rightBound) {
         if (value < leftBound || rightBound < value)
             throw new IllegalArgumentException(String.format("%s out of range.", title));

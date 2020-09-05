@@ -1,15 +1,19 @@
 package utils;
 
-import edu.princeton.cs.algs4.Date;
-
 public class Transaction {
     private final String fullName;
-    private final Date date;
+    private final SmartDate date;
     private final double amount;
 
-    public Transaction(String fullName, Date date, double amount) {
+    public Transaction(String fullName, SmartDate date, double amount) {
         this.fullName = fullName;
         this.date = date;
+        this.amount = amount;
+    }
+
+    public Transaction(String fullName, String date, double amount) {
+        this.fullName = fullName;
+        this.date = new SmartDate(date);
         this.amount = amount;
     }
 
@@ -17,7 +21,7 @@ public class Transaction {
         return fullName;
     }
 
-    public Date date() {
+    public SmartDate date() {
         return date;
     }
 
