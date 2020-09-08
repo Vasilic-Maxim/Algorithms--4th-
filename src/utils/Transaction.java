@@ -33,7 +33,7 @@ public class Transaction {
     @Override
     public String toString() {
         return String.format(
-                "FullName: %s  Date: %s  Amount: %f",
+                "FullName: %s  Date: %s  Amount: %.2f",
                 customer, date, amount
         );
     }
