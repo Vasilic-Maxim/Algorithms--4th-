@@ -13,7 +13,21 @@ public class LinkedList<E> {
         size++;
     }
 
-    public void deleteLast() {
+    public E delete(int k) {
+        if (k > size)
+            throw new NoSuchElementException("Cannot process deletion on an element that does not exist.");
+
+        Node<E> pointer = dummyRoot;
+        for (int i = 1; i < k; i++)
+            pointer = pointer.next;
+
+        Node<E> nextNode = pointer.next;
+        pointer.next = pointer.next.next;
+        size--;
+        return nextNode.value;
+    }
+
+    public E deleteLast() {
         if (size == 0)
             throw new NoSuchElementException("Cannot process deletion on an empty list.");
 
@@ -21,8 +35,10 @@ public class LinkedList<E> {
         while (pointer.next != null && pointer.next.next != null)
             pointer = pointer.next;
 
+        Node<E> nextNode = pointer.next;
         pointer.next = null;
         size--;
+        return nextNode.value;
     }
 
     @Override

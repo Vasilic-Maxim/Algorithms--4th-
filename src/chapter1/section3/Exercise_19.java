@@ -16,7 +16,7 @@ public class Exercise_19 {
         list.addFirst("Hello");
 
         StdOut.println(list);
-        list.deleteLast();
+        StdOut.printf("Deleted element: %s%n", list.deleteLast());
         StdOut.println(list);
     }
 }
