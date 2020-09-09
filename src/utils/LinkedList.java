@@ -39,6 +39,16 @@ public class LinkedList<E> {
         return nextNode.value;
     }
 
+    public void remove(E key) {
+        if (size == 0) return;
+
+        Node<E> pointer = dummyRoot;
+        while (pointer.next != null) {
+            if (pointer.next.value == key) removeAfter(pointer);
+            else pointer = pointer.next;
+        }
+    }
+
     private void removeAfter(Node<E> node) {
         if (node == null) return;
         if (node.next == null) return;
