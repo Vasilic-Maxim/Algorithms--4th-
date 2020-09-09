@@ -41,6 +41,16 @@ public class LinkedList<E> {
         return nextNode.value;
     }
 
+    public boolean find(E value) {
+        Node<E> pointer = dummyRoot.next;
+        while (pointer != null) {
+            if (pointer.value == value) return true;
+            pointer = pointer.next;
+        }
+
+        return false;
+    }
+
     @Override
     public String toString() {
         if (size == 0) return "";
