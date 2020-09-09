@@ -22,8 +22,7 @@ public class LinkedList<E> {
             pointer = pointer.next;
 
         Node<E> nextNode = pointer.next;
-        pointer.next = pointer.next.next;
-        size--;
+        removeAfter(pointer);
         return nextNode.value;
     }
 
@@ -36,9 +35,15 @@ public class LinkedList<E> {
             pointer = pointer.next;
 
         Node<E> nextNode = pointer.next;
-        pointer.next = null;
-        size--;
+        removeAfter(pointer);
         return nextNode.value;
+    }
+
+    public void removeAfter(Node<E> node) {
+        if (node == null) return;
+        if (node.next == null) return;
+        node.next = node.next.next;
+        size--;
     }
 
     public boolean find(E value) {
