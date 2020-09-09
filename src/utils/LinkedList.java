@@ -39,11 +39,18 @@ public class LinkedList<E> {
         return nextNode.value;
     }
 
-    public void removeAfter(Node<E> node) {
+    private void removeAfter(Node<E> node) {
         if (node == null) return;
         if (node.next == null) return;
         node.next = node.next.next;
         size--;
+    }
+
+    private void insertAfter(Node<E> current, Node<E> inserted) {
+        if (current == null) return;
+        if (inserted == null) return;
+        inserted.next = current.next;
+        current.next = inserted;
     }
 
     public boolean find(E value) {
