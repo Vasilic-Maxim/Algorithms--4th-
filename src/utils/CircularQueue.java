@@ -2,12 +2,12 @@ package utils;
 
 import java.util.NoSuchElementException;
 
-public class CircularQueue<E> {
-    private Node<E> first, last;
+public class CircularQueue<T> {
+    private Node<T> first, last;
     private int size = 0;
 
-    public void enqueue(E item) {
-        Node<E> node = new Node<>(item);
+    public void enqueue(T item) {
+        Node<T> node = new Node<>(item);
         if (size == 0) {
             first = node;
             last = node;
@@ -19,10 +19,10 @@ public class CircularQueue<E> {
         size++;
     }
 
-    public E dequeue() {
+    public T dequeue() {
         if (size == 0) throw new NoSuchElementException("The queue is empty.");
 
-        E item = first.value;
+        T item = first.value;
         if (size == 1) {
             first = null;
             last = null;
@@ -38,7 +38,7 @@ public class CircularQueue<E> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Node<E> pointer = first;
+        Node<T> pointer = first;
         for (int i = 0; i < size; i++) {
             if (i != 0) sb.append(" -> ");
             sb.append(pointer.value);
