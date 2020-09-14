@@ -199,7 +199,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         if (isEmpty()) throw new IllegalStateException("The list is empty.");
     }
 
-    public static class DoublyNode<T> {
+    private static class DoublyNode<T> {
         private final T item;
         private DoublyNode<T> prev, next;
 
