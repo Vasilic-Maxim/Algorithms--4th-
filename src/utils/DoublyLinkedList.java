@@ -137,7 +137,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         StringBuilder sb = new StringBuilder();
         DoublyNode<T> pointer = dummyNode.next;
         while (pointer != dummyNode) {
-            if (sb.length() > 0) sb.append(" -> ");
+            if (sb.length() > 0) sb.append(" ");
             sb.append(pointer.item);
             pointer = pointer.next;
         }
